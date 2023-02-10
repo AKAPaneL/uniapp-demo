@@ -6,9 +6,9 @@
 		</view>
 		<button @click="setTitle">点击修改标题</button>
 		<progress-vue></progress-vue>
+		<w-loading text="加载中.." mask="true" click="true" ref="loading"></w-loading>
 		<!-- #ifdef MP-WEIXIN -->
 		<uni-badge text="1"></uni-badge>
-		
 		<!-- #endif -->
 	</view>
 </template>
@@ -27,6 +27,9 @@
 				icon:'success',
 				duration:1500
 			})
+		},
+		onReady() {
+			this.$refs.loading.open()
 		},
 		methods: {
 			setTitle(){
