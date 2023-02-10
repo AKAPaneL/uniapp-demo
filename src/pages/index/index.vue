@@ -4,6 +4,12 @@
 		<view>
 			<text class="title">{{title}}</text>
 		</view>
+		<button @click="setTitle">点击修改标题</button>
+		<progress-vue></progress-vue>
+		<!-- #ifdef MP-WEIXIN -->
+		<uni-badge text="1"></uni-badge>
+		
+		<!-- #endif -->
 	</view>
 </template>
 
@@ -11,14 +17,23 @@
 	export default {
 		data() {
 			return {
-				title: 'Hello'
+				title: 'Hello',
+				value:'1'
 			}
 		},
 		onLoad() {
-
+			uni.showToast({
+				title:'启动成功',
+				icon:'success',
+				duration:1500
+			})
 		},
 		methods: {
-
+			setTitle(){
+				uni.setNavigationBarTitle({
+					title:'首页'
+				})
+			}
 		}
 	}
 </script>
